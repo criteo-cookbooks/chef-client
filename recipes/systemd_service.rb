@@ -83,6 +83,6 @@ systemd_unit 'chef-client.timer' do
       'AccuracySec' => "#{node['chef_client']['splay']}sec",
     }
   )
-  action(timer ? [:create, :enable, :start] : [:stop, :disable, :delete])
+  action(timer ? [:create, :enable, :start] : [:stop, :delete])
   notifies :restart, to_s, :delayed
 end
